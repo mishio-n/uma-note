@@ -1,20 +1,13 @@
 import { css } from '@/styled-system/css';
-import { center, flex } from '@/styled-system/patterns';
+import { center } from '@/styled-system/patterns';
 import Link from 'next/link';
 
-export const Header: React.FC = () => {
+export const Footer: React.FC = () => {
   return (
-    <header
-      className={flex({
-        position: 'sticky',
-        left: 0,
-        top: 0,
-        zIndex: 50,
-        justifyContent: 'space-between',
-        shadow: 'md',
-        shadowColor: 'gray.700',
-        color: 'neutral.700',
-        bg: 'rgb(0,0,30)',
+    <footer
+      className={css({
+        backgroundColor: '#f7fafc',
+        py: 14,
       })}
     >
       <Link
@@ -23,10 +16,8 @@ export const Header: React.FC = () => {
           cursor: 'pointer',
           alignItems: 'center',
           justifyContent: 'center',
-          fontSize: 'xl',
-          fontWeight: 'bold',
-          color: '#FFF',
           textTransform: 'none',
+          gap: 8,
         })}
       >
         {
@@ -36,16 +27,25 @@ export const Header: React.FC = () => {
             alt="icon"
             className={css({
               animation: 'none',
-              position: 'absolute',
+              position: 'relative',
               left: 2,
               top: 0,
               h: '64px',
               w: '64px',
+              rounded: 'full',
             })}
           />
         }
-        <span className={css({ marginLeft: '68px' })}>うまノート</span>
+        <span
+          className={css({
+            fontSize: 'xl',
+            fontWeight: 'bold',
+            color: 'rgb(0,0,30)',
+          })}
+        >
+          うまノート
+        </span>
       </Link>
-    </header>
+    </footer>
   );
 };
