@@ -6,26 +6,25 @@ import { useSelectedLayoutSegment } from "next/navigation";
 import { useEffect } from "react";
 
 type Props = {
-	path: string;
-	name: string;
+  path: string;
+  name: string;
 };
 
 export const Tab: React.FC<Props> = ({ path, name }) => {
-	const href = `/${path}`;
-	const segment = useSelectedLayoutSegment();
-	const isActive = segment === path;
+  const href = `/${path}`;
+  const segment = useSelectedLayoutSegment();
+  const isActive = segment === path;
 
-	return (
-		<Link
-			href={href}
-			className={css({
-				color: isActive ? "black" : "gray.300",
-				borderBottom: "1px solid",
-				paddingY: 2.5,
-				outlineOffset: -2,
-			})}
-		>
-			{name}
-		</Link>
-	);
+  return (
+    <Link
+      href={href}
+      className={css({
+        color: isActive ? "black" : "gray.300",
+        paddingY: 2.5,
+        outlineOffset: -2,
+      })}
+    >
+      {name}
+    </Link>
+  );
 };

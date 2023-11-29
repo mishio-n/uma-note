@@ -11,5 +11,9 @@
         "noDangerouslySetInnerHtml": "off"
       }
     }
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space"
   }
 }

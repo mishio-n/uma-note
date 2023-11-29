@@ -1,28 +1,42 @@
 import { microcmsClient } from "@/lib/microcms";
+import { css } from "@/styled-system/css";
+import { Modal } from "@/ui/modal";
 
 type Props = {
-	params: {
-		horseId: string;
-	};
+  params: {
+    horseId: string;
+  };
 };
 
-// export async function generateStaticParams() {
-// 	const horses = await microcmsClient.getList({ endpoint: "horses" });
-// 	const params = horses.contents.map((horse) => ({ horseId: horse.id }));
-// 	return params;
-// }
-
 export default async function HorsePage({ params }: Props) {
-	const horse = await microcmsClient.getListDetail({
-		endpoint: "horses",
-		contentId: params.horseId,
-	});
+  const horse = await microcmsClient.getListDetail({
+    endpoint: "horses",
+    contentId: params.horseId,
+  });
 
-	return (
-		<div>
-			This is Intercepted
-			<span>{horse.name}</span>
-			<span>{horse.memo}</span>
-		</div>
-	);
+  return (
+    <Modal>
+      <div
+        className={css({
+          position: "relative",
+          display: "flex",
+          flexDirection: "column",
+          gap: 4,
+          padding: 4,
+        })}
+      >
+        <span
+          className={css({
+            fontWeight: 700,
+            textAlign: "center",
+          })}
+        >
+          {horse.name}
+        </span>
+        <div dangerouslySetInnerHTML={{ __html: horse.memo }} />
+        <span>次走情報：</span>
+        <div>{horse.nextInfo ?? "未定"}</div>
+      </div>
+    </Modal>
+  );
 }

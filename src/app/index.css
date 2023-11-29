@@ -1,1 +1,9 @@
 @layer reset, base, tokens, recipes, utilities;
+
+body {
+  color: rgba(3, 10, 18, 0.81);
+  letter-spacing: 0.02em;
+  word-break: break-word;
+  line-break: strict;
+  font-size: 1.05rem;
+}
