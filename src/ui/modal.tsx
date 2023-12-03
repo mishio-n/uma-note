@@ -34,7 +34,6 @@ export const Modal: React.FC<Props> = ({ children }) => {
       <Dialog.Portal>
         <Dialog.Overlay
           className={css({
-            animation: "fade-in .25s ease-out both",
             inset: 0,
             position: "fixed",
             bg: "rgba(0, 0, 0, .5)",
@@ -44,17 +43,22 @@ export const Modal: React.FC<Props> = ({ children }) => {
           onEscapeKeyDown={(e) => routerBack(e)}
           onPointerDownOutside={(e) => routerBack(e)}
           className={css({
-            animation: "fade-in .25s ease-out both",
             zIndex: 20,
-            top: "20%",
-            left: "20%",
             position: "fixed",
-            transform: "translate(-10%, -50%)",
+            smTo2xl: {
+              top: "30%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+            },
+            smDown: {
+              top: "20%",
+              left: "20%",
+              transform: "translate(-10%, -10%)",
+            },
           })}
         >
           <div
             className={css({
-              bg: "white",
               borderRadius: "md",
               position: "relative",
             })}

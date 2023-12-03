@@ -49,15 +49,15 @@ export default async function RootLayout({
   return (
     <html lang="ja">
       <body className={`${inter.className} ${notoSansJP.className}`}>
-        <Navigation />
         <main
           className={css({
-            minHeight: "100vh",
+            // minHeight: "100vh",
             marginX: "auto",
             width: "10/12",
             paddingY: 6,
           })}
         >
+          <Navigation />
           {children}
         </main>
         {modal}

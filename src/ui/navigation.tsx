@@ -16,7 +16,6 @@ export const Navigation: React.FC = () => {
     >
       <div
         className={css({
-          borderBottom: "1px solid",
           marginY: -0.5,
           paddingY: 0.5,
         })}

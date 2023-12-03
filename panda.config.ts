@@ -1,11 +1,19 @@
-import { defineConfig } from '@pandacss/dev';
+import { defineConfig } from "@pandacss/dev";
 
 export default defineConfig({
   preflight: true,
-  include: ['./src/**/*.{js,jsx,ts,tsx}'],
+  include: ["./src/**/*.{js,jsx,ts,tsx}"],
   exclude: [],
   theme: {
-    extend: {},
+    extend: {
+      tokens: {
+        colors: {
+          paper: {
+            value: "rgb(255, 252, 244)",
+          },
+        },
+      },
+    },
   },
-  outdir: 'src/styled-system',
+  outdir: "src/styled-system",
 });
