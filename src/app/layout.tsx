@@ -1,5 +1,5 @@
 import { css } from "@/styled-system/css";
-import { Footer } from "@/ui/footer";
+import { Header } from "@/ui/header";
 import { Navigation } from "@/ui/navigation";
 import type { Metadata } from "next";
 import { Inter, Noto_Sans_JP } from "next/font/google";
@@ -12,7 +12,7 @@ const notoSansJP = Noto_Sans_JP({
 });
 
 export const metadata: Metadata = {
-  title: "Uma Note",
+  title: "うまノート",
   description: "競馬に関することを気ままに更新します",
   icons: [
     {
@@ -49,6 +49,7 @@ export default async function RootLayout({
   return (
     <html lang="ja">
       <body className={`${inter.className} ${notoSansJP.className}`}>
+        <Header />
         <main
           className={css({
             // minHeight: "100vh",
@@ -61,7 +62,6 @@ export default async function RootLayout({
           {children}
         </main>
         {modal}
-        <Footer />
       </body>
     </html>
   );

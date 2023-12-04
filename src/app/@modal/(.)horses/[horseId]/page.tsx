@@ -3,8 +3,8 @@ import { microcmsClient } from "@/lib/microcms";
 import { css } from "@/styled-system/css";
 import { flex } from "@/styled-system/patterns";
 import { Modal } from "@/ui/modal";
-import { RaceLabel } from "@/ui/race-label";
 import { Tag } from "@/ui/tag";
+import { RaceLabel } from "./_components/race-label";
 
 type Props = {
   params: {

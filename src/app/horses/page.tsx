@@ -7,17 +7,6 @@ export default async function HorsesPage() {
   return (
     <>
       <HorseList horses={horses.contents} />
-      <HorseList horses={horses.contents} />
-      <HorseList horses={horses.contents} />
-      <HorseList horses={horses.contents} />
-      <HorseList horses={horses.contents} />
-      <HorseList horses={horses.contents} />
-      <HorseList horses={horses.contents} />
-      <HorseList horses={horses.contents} />
-      <HorseList horses={horses.contents} />
-      <HorseList horses={horses.contents} />
-      <HorseList horses={horses.contents} />
-      <HorseList horses={horses.contents} />
     </>
   );
 }
