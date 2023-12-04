@@ -44,7 +44,7 @@ export default async function RootLayout({
   modal,
 }: {
   children: React.ReactNode;
-  modal?: React.ReactNode;
+  modal: React.ReactNode;
 }) {
   return (
     <html lang="ja">
@@ -52,7 +52,6 @@ export default async function RootLayout({
         <Header />
         <main
           className={css({
-            // minHeight: "100vh",
             marginX: "auto",
             width: "10/12",
             paddingY: 6,

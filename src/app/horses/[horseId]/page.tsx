@@ -1,27 +1,29 @@
 import { microcmsClient } from "@/lib/microcms";
 
 type Props = {
-	params: {
-		horseId: string;
-	};
+  params: {
+    horseId: string;
+  };
 };
 
+export const runtime = "edge";
+
 export async function generateStaticParams() {
-	const horses = await microcmsClient.getList({ endpoint: "horses" });
-	const params = horses.contents.map((horse) => ({ horseId: horse.id }));
-	return params;
+  const horses = await microcmsClient.getList({ endpoint: "horses" });
+  const params = horses.contents.map((horse) => ({ horseId: horse.id }));
+  return params;
 }
 
 export default async function HorsePage({ params }: Props) {
-	const horse = await microcmsClient.getListDetail({
-		endpoint: "horses",
-		contentId: params.horseId,
-	});
+  const horse = await microcmsClient.getListDetail({
+    endpoint: "horses",
+    contentId: params.horseId,
+  });
 
-	return (
-		<div>
-			<span>{horse.name}</span>
-			<span>{horse.memo}</span>
-		</div>
-	);
+  return (
+    <div>
+      <span>{horse.name}</span>
+      <span>{horse.memo}</span>
+    </div>
+  );
 }

@@ -12,6 +12,8 @@ type Props = {
   };
 };
 
+export const runtime = "edge";
+
 export default async function HorsePage({ params }: Props) {
   const horse = await microcmsClient.getListDetail({
     endpoint: "horses",
