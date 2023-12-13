@@ -1,10 +1,14 @@
 "use client";
 
 import { css } from "@/styled-system/css";
-import { center, flex } from "@/styled-system/patterns";
+import { center } from "@/styled-system/patterns";
 import { Tab } from "./tab";
 
-export const Navigation: React.FC = () => {
+type Props = {
+  children: React.ReactNode;
+};
+
+export const Navigation: React.FC<Props> = ({ children }) => {
   return (
     <div
       className={css({
@@ -20,10 +24,7 @@ export const Navigation: React.FC = () => {
           paddingY: 0.5,
         })}
       >
-        <nav className={center({ gap: 20 })}>
-          <Tab path="posts" name="記事" />
-          <Tab path="horses" name="注目馬リスト" />
-        </nav>
+        <nav className={center({ gap: 20 })}>{children}</nav>
       </div>
     </div>
   );

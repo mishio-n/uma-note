@@ -3,7 +3,6 @@
 import { css } from "@/styled-system/css";
 import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
-import { useEffect } from "react";
 
 type Props = {
   path: string;

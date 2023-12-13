@@ -1,6 +1,7 @@
 import { css } from "@/styled-system/css";
 import { Header } from "@/ui/header";
 import { Navigation } from "@/ui/navigation";
+import { Tab } from "@/ui/tab";
 import type { Metadata } from "next";
 import { Inter, Noto_Sans_JP } from "next/font/google";
 import "./index.css";
@@ -57,8 +58,18 @@ export default async function RootLayout({
             paddingY: 6,
           })}
         >
-          <Navigation />
-          {children}
+          <Navigation>
+            <Tab path="posts" name="記事" />
+            <Tab path="horses" name="注目馬リスト" />
+          </Navigation>
+          <div
+            className={css({
+              paddingY: 4,
+              paddingX: 2,
+            })}
+          >
+            {children}
+          </div>
         </main>
         {modal}
       </body>
