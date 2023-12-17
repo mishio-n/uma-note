@@ -1,5 +1,5 @@
 import { formatDate } from "@/lib/date-format";
-import { microcmsClient } from "@/lib/microcms";
+import { Horse, microcmsClient } from "@/lib/microcms";
 
 type Props = {
   params: {
@@ -10,13 +10,13 @@ type Props = {
 export const runtime = "edge";
 
 export async function generateStaticParams() {
-  const horses = await microcmsClient.getList({ endpoint: "horses" });
+  const horses = await microcmsClient.getList<Horse>({ endpoint: "horses" });
   const params = horses.contents.map((horse) => ({ horseId: horse.id }));
   return params;
 }
 
 export default async function HorsePage({ params }: Props) {
-  const horse = await microcmsClient.getListDetail({
+  const horse = await microcmsClient.getListDetail<Horse>({
     endpoint: "horses",
     contentId: params.horseId,
   });

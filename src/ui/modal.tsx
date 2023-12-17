@@ -45,7 +45,7 @@ export const Modal: React.FC<Props> = ({ children }) => {
           className={css({
             zIndex: 20,
             position: "fixed",
-            smTo2xl: {
+            sm: {
               top: "30%",
               left: "50%",
               transform: "translate(-50%, -50%)",

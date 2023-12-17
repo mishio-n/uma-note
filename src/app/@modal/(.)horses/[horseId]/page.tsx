@@ -1,5 +1,5 @@
 import { formatDate } from "@/lib/date-format";
-import { microcmsClient } from "@/lib/microcms";
+import { Horse, microcmsClient } from "@/lib/microcms";
 import { css } from "@/styled-system/css";
 import { flex } from "@/styled-system/patterns";
 import { Modal } from "@/ui/modal";
@@ -15,7 +15,7 @@ type Props = {
 export const runtime = "edge";
 
 export default async function HorsePage({ params }: Props) {
-  const horse = await microcmsClient.getListDetail({
+  const horse = await microcmsClient.getListDetail<Horse>({
     endpoint: "horses",
     contentId: params.horseId,
   });

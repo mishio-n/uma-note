@@ -1,8 +1,4 @@
-import {
-  MicroCMSListAPI,
-  MicroCMSRelation,
-  createClient,
-} from "microcms-ts-sdk";
+import { MicroCMSListContent, createClient } from "microcms-js-sdk";
 
 type MicroCMSMetaData = {
   createdAt: string;
@@ -11,7 +7,7 @@ type MicroCMSMetaData = {
   revisedAt: string;
 };
 
-type Category = MicroCMSMetaData & {
+export type Category = MicroCMSMetaData & {
   id: string;
   name: string;
   craetedAt: string;
@@ -47,7 +43,7 @@ export type Post = MicroCMSMetaData & {
   updatedAt: string;
   publiushedAt: string;
   title: string;
-  categories: MicroCMSRelation<Category>[];
+  categories: (Category & MicroCMSListContent)[];
   body: Body[];
 };
 
@@ -59,13 +55,7 @@ export type Horse = MicroCMSMetaData & {
   tags?: Tag[];
 };
 
-type Endpoints = {
-  categories: MicroCMSListAPI<Category>;
-  posts: MicroCMSListAPI<Post>;
-  horses: MicroCMSListAPI<Horse>;
-};
-
-export const microcmsClient = createClient<Endpoints>({
+export const microcmsClient = createClient({
   serviceDomain: process.env.MICROCMS_SERVICE_DOMAIN || "",
   apiKey: process.env.MICROCMS_API_KEY || "",
 });

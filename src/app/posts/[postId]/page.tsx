@@ -1,4 +1,4 @@
-import { microcmsClient } from "@/lib/microcms";
+import { Post, microcmsClient } from "@/lib/microcms";
 
 type Props = {
   params: {
@@ -9,13 +9,13 @@ type Props = {
 export const runtime = "edge";
 
 export async function generateStaticParams() {
-  const posts = await microcmsClient.getList({ endpoint: "posts" });
+  const posts = await microcmsClient.getList<Post>({ endpoint: "posts" });
   const params = posts.contents.map((post) => ({ postId: post.id }));
   return params;
 }
 
 export default async function PostPage({ params }: Props) {
-  const post = await microcmsClient.getListDetail({
+  const post = await microcmsClient.getListDetail<Post>({
     endpoint: "posts",
     contentId: params.postId,
   });
