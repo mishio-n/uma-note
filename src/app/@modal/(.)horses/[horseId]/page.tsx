@@ -72,7 +72,7 @@ export default async function HorsePage({ params }: Props) {
         {horse.nextInfo?.race && (
           <RaceLabel
             race={horse.nextInfo.race}
-            date={horse.nextInfo.date && formatDate(horse.nextInfo.date)}
+            date={horse.nextInfo.date && formatDate(horse.nextInfo.date, "M/D")}
             styles={{
               position: "relative",
             }}

@@ -24,7 +24,7 @@ export default async function HorsePage({ params }: Props) {
   return (
     <div>
       <span>{horse.name}</span>
-      <span>最終更新日 {formatDate(horse.updatedAt)}</span>
+      <span>最終更新日 {formatDate(horse.updatedAt, "YYYY/MM/DD")}</span>
       <span>{horse.nextInfo?.race}</span>
       <span>{horse.tags?.toString()}</span>
       <div dangerouslySetInnerHTML={{ __html: horse.memo }} />

@@ -1,4 +1,5 @@
 import { Post, microcmsClient } from "@/lib/microcms";
+import { css } from "@/styled-system/css";
 
 type Props = {
   params: {
@@ -24,6 +25,33 @@ export default async function PostPage({ params }: Props) {
     <div>
       <span>{post.title}</span>
       <span>{post.categories[0].name}</span>
+      <div className={css({ py: 2 })}>
+        {post.body.map((content, i) =>
+          content.fieldId === "yosou" ? (
+            <div key={`${content.fieldId}-${i}`}>
+              <h2>{content.raceName}</h2>
+              <p
+                className={css({
+                  whiteSpace: "pre-wrap",
+                })}
+              >
+                {content.summary}
+              </p>
+              <p
+                className={css({
+                  whiteSpace: "pre-wrap",
+                })}
+              >
+                {content.opinion}
+              </p>
+            </div>
+          ) : (
+            <div key={`${content.fieldId}-${i}`}>
+              <div dangerouslySetInnerHTML={{ __html: content.content }} />
+            </div>
+          ),
+        )}
+      </div>
     </div>
   );
 }

@@ -14,12 +14,12 @@ export type Category = MicroCMSMetaData & {
   updatedAt: string;
 };
 
-type RichEdit = {
+export type RichEdit = {
   fieldId: "richEditor";
   content: string;
 };
 
-type Yosou = {
+export type Yosou = {
   fieldId: "yosou";
   raceName: string;
   summary: string;
